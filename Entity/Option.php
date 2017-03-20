@@ -52,9 +52,8 @@ class Option
     /**
      * Constructor
      */
-    public function __construct($value = 'tet')
+    public function __construct()
     {
-        $this->value = $value;
         $this->attributes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
