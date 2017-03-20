@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Attribute
  *
- * @ORM\Table(name="attribute_definition")
+ * @ORM\Table(name="aamant_configurable_attributes_attribute_definition")
  * @ORM\Entity(repositoryClass="Aamant\ConfigurableAttributesBundle\Repository\AttributeDefinitionRepository")
  */
 class AttributeDefinition

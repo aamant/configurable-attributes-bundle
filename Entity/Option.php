@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AttributeValue
  *
- * @ORM\Table(name="attribute_option")
+ * @ORM\Table(name="aamant_configurable_attributes_option")
  * @ORM\Entity(repositoryClass="Aamant\ConfigurableAttributesBundle\Repository\OptionRepository")
  */
 class Option
