@@ -1,0 +1,20 @@
+{
+    "name": "aamant/configurable-attributes-bundle",
+    "description": "Configurable attributes for Symfony",
+    "authors": [
+        {
+            "name": "Amant Arnaud",
+            "email": "arnaud.amant@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6.0",
+        "symfony/form": "^2.8 || ^3.0",
+        "symfony/framework-bundle": "^2.8 || ^3.0",
+        "symfony/security-bundle": "^2.8 || ^3.0",
+        "symfony/twig-bundle": "^2.8 || ^3.0",
+        "twig/twig": "^1.28 || ^2.0",
+        "symfony/templating": "^2.8 || ^3.0"
+    }
+}

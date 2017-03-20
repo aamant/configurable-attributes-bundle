@@ -1,0 +1,18 @@
+.list-attribute-option {
+  list-style: none;
+  li {
+    text-align: right;
+    & > div {
+      display: inline-block;
+      margin-top: 40px;
+      float: left;
+      &:first-child {
+        width: 95%;
+      }
+      &:last-child {
+        width: 5%;
+        font-size: 20px;
+      }
+    }
+  }
+}

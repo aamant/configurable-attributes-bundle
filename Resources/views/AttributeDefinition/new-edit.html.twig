@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Attribute creation{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.label) }}
+        <ul id="value-fields-list" class="list-attribute-option"
+            data-prototype="{{ form_widget(form.options.vars.prototype)|e }}">
+            {% for option in form.options %}
+                <li>
+                    {{ form_errors(option) }}
+                    {{ form_widget(option) }}
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="text-right">
+            <a href="#" id="add-another-value" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> {{ 'Add choice'|trans }}</a>
+            <input type="submit" value="{{ 'Save'|trans }}" class="btn btn-primary" /> &nbsp;
+            <a href="{{ path('attribute_index') }}" class="btn btn-default">Back to the list</a>
+        </div>
+    {{ form_end(form) }}
+    {% if delete_form is defined %}
+    <br>
+    <div class="text-right">
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-warning">
+        {{ form_end(delete_form) }}
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        var valueCount = '{{ form.options|length }}';
+
+        $(document).ready(function() {
+
+            $('#add-another-value').click(function(e) {
+                e.preventDefault();
+
+                var valueList = $('#value-fields-list');
+
+                var newWidget = valueList.attr('data-prototype');
+                newWidget = newWidget.replace(/__name__/g, valueCount);
+                valueCount++;
+
+                var newLi = $('<li></li>').html(newWidget);
+                newLi.appendTo(valueList);
+                addDeleteOption(newLi);
+
+            });
+
+            // delete
+            $('#value-fields-list li').each(function() {
+                addDeleteOption($(this));
+            });
+
+            function addDeleteOption(option){
+                var link = $('<div class="link"><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>');
+                option.append(link);
+
+                link.on('click', function(e) {
+                    e.preventDefault();
+                    option.remove();
+                });
+            }
+        })
+    </script>
+{% endblock javascripts %}
